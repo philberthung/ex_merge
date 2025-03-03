@@ -12,7 +12,7 @@ def get_todos():
 @app.route('/todos', methods=['POST'])
 def add_item():
     items = request.json
-    items.append(todo)
+    todos.append(items)
     return jsonify(todo), 201
 
 @app.route('/todos/<int:todo_id>', methods=['PUT'])
