@@ -10,10 +10,22 @@ def get_todos():
     return jsonify(todos), 200
 
 @app.route('/todos', methods=['POST'])
+<<<<<<< HEAD
 def add_item():
     items = request.json
     todos.append(items)
     return jsonify(todo), 201
+=======
+def add_todo():
+    todo = request.json
+
+    # add item only if it is not already present
+    if todo in todos:
+        return jsonify({'error': 'Item already exists'}), 400
+    else:
+        todos.append(todo)
+        return jsonify(todo), 201
+>>>>>>> bob
 
 @app.route('/todos/<int:todo_id>', methods=['PUT'])
 def update_todo(todo_id):
